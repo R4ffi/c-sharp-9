@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleApp
+namespace R4ffi.CSharp9
 {
     class Program
     {
