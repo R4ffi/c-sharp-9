@@ -1,30 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace R4ffi.CSharp9.BeerDomain
 {
     internal class Fridge
     {
-        private readonly List<Beer> beers;
-        private readonly Random random;
+        private readonly List<Beer> beers = new List<Beer>();
+        private readonly Random random = new Random();
 
-        public Fridge(int capacity)
-        {
-            Capacity = capacity;
-            beers = new List<Beer>(capacity);
-            random = new Random();
-        }
+        public int TotalCapacity { get; set; }
 
-        public int Capacity { get; private set; }
+        public int FreeCapacity => TotalCapacity - beers.Count;
 
-        public void Fill(BeerSupplier beerSupplier)
+
+        public void Fill(IEnumerable<Beer> beersToAdd)
         {
             Console.WriteLine("Filling the fridge with beer...");
 
-            var numberOfBeersToAdd = Capacity - beers.Count;
-            beers.AddRange(beerSupplier.GetBeers(numberOfBeersToAdd));
+            beers.AddRange(beersToAdd.Take(FreeCapacity));
 
-            Console.WriteLine($"Added {numberOfBeersToAdd} beers to the fridge.");
+            Console.WriteLine($"Added {beersToAdd.Count()} beers to the fridge.");
         }
 
         public Beer GetBeer()

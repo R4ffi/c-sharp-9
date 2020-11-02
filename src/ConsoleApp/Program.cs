@@ -8,8 +8,12 @@ namespace R4ffi.CSharp9
         public static void Main()
         {
             var beerSupplier = new BeerSupplier();
-            var fridge = new Fridge(5);
-            fridge.Fill(beerSupplier);
+            var fridge = new Fridge
+            {
+                TotalCapacity = 5
+            };
+            var beersToAdd = beerSupplier.GetBeers(fridge.FreeCapacity);
+            fridge.Fill(beersToAdd);
 
             var beerNo1 = fridge.GetBeer();
             var beerNo2 = fridge.GetBeer();
@@ -18,8 +22,6 @@ namespace R4ffi.CSharp9
             {
                 Console.WriteLine("Once again?? I'd like some variety!");
             }
-
-            fridge.Fill(beerSupplier);
         }
     }
 }
