@@ -2,7 +2,7 @@
 using System.Linq;
 using R4ffi.CSharp9.BeerDomain;
 
-namespace R4ffi.CSharp9
+namespace R4ffi.CSharp9.BeerDomain
 {
     internal class BeerSupplier
     {
