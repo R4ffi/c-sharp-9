@@ -43,7 +43,7 @@ namespace R4ffi.CSharp9
                     return "Just the way I like it!";
                 }
 
-                return "This is too strong for me"!;
+                return "This is too strong for me!";
             }
             else
             {
