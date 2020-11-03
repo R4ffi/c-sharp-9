@@ -6,10 +6,10 @@ namespace R4ffi.CSharp9.BeerDomain
 {
     internal class Fridge
     {
-        private readonly List<Beer> beers = new List<Beer>();
-        private readonly Random random = new Random();
+        private readonly List<Beer> beers = new();
+        private readonly Random random = new();
 
-        public int TotalCapacity { get; set; }
+        public int TotalCapacity { get; init; }
 
         public int FreeCapacity => TotalCapacity - beers.Count;
 
