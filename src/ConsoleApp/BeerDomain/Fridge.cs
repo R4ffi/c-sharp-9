@@ -13,20 +13,15 @@ namespace R4ffi.CSharp9.BeerDomain
 
         public int FreeCapacity => TotalCapacity - beers.Count;
 
-
         public void Fill(IEnumerable<Beer> beersToAdd)
         {
-            Console.WriteLine("Filling the fridge with beer...");
-
             beers.AddRange(beersToAdd.Take(FreeCapacity));
 
             Console.WriteLine($"Added {beersToAdd.Count()} beers to the fridge.");
         }
 
-        public Beer GetBeer()
+        public Beer GetRandomBeer()
         {
-            Console.WriteLine("Getting a random beer from the fridge...");
-
             var nextBeerIndex = random.Next(0, beers.Count);
             var selectedBeer = beers[nextBeerIndex];
             beers.RemoveAt(nextBeerIndex);

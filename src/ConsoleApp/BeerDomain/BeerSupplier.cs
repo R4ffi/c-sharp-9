@@ -6,7 +6,7 @@ namespace R4ffi.CSharp9
 {
     internal class BeerSupplier
     {
-        public IEnumerable<Beer> GetBeers(int numberOfBeers)
+        public IEnumerable<Beer> GetDifferentBeers(int numberOfBeers)
         {
             var beers = new List<Beer>(numberOfBeers);
 
@@ -21,6 +21,12 @@ namespace R4ffi.CSharp9
             }
 
             return beers.Take(numberOfBeers);
+        }
+
+        public IEnumerable<Beer> GetBaernerMuentschis(int numberOfBeers)
+        {
+            return Enumerable.Range(0, numberOfBeers)
+                .Select(_ => new Beer("Felsenau Bärner Müntschi", BeerType.Lager, 4.8)).ToList();
         }
     }
 }

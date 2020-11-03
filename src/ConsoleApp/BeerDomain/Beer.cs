@@ -30,5 +30,15 @@
                 ^ Type.GetHashCode()
                 ^ AlcoholInPercent.GetHashCode();
         }
+
+        public static bool operator ==(Beer obj1, object? obj2)
+        {
+            return obj1.Equals(obj2);
+        }
+
+        public static bool operator !=(Beer obj1, object? obj2)
+        {
+            return !(obj1.Equals(obj2));
+        }
     }
 }
