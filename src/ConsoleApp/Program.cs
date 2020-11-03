@@ -14,8 +14,9 @@ namespace R4ffi.CSharp9
             fridge.Fill(beersToAdd);
 
             var beerNo1 = fridge.GetRandomBeer();
-            var beerNo2 = fridge.GetRandomBeer();
+            Console.WriteLine(GetMyComment(beerNo1));
 
+            var beerNo2 = fridge.GetRandomBeer();
             if (beerNo1 == beerNo2)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -25,6 +26,28 @@ namespace R4ffi.CSharp9
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Mmmh, I've never tried that before! :-D");
+            }
+        }
+
+        private static string GetMyComment(Beer beer)
+        {
+            if (!(beer.Type is BeerType.WheatBeer))
+            {
+                if (beer.AlcoholInPercent < 4)
+                {
+                    return "Mmmh... Refreshing!";
+                }
+
+                if (beer.AlcoholInPercent >= 4 && beer.AlcoholInPercent < 9)
+                {
+                    return "Just the way I like it!";
+                }
+
+                return "This is too strong for me"!;
+            }
+            else
+            {
+                return "I don't like wheat beer!";
             }
         }
     }
