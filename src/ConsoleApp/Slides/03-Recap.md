@@ -10,7 +10,7 @@
 + Very cool for fans of parameterless constructors
 
 ## Records
-+ You can get rid of a lot of boilerplate
++ You can get rid of a lot of boilerplate code
 - You lose some flexibility
 
 ## Target-typed new expressions
